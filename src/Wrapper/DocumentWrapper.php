@@ -97,7 +97,7 @@ class DocumentWrapper extends BaseWrapper
             $format = $this->parameters['format'];
         }
 
-         // try Symfony request
+        // try Symfony request
         elseif (isset($this->context['app'])) {
             /**
              * @var AppVariable
@@ -120,7 +120,7 @@ class DocumentWrapper extends BaseWrapper
             if (!class_exists('\Mpdf\Mpdf')) {
                 throw new RuntimeException('Error loading mPDF. Is mPDF correctly installed?');
             }
-            IOFactory::registerWriter('Pdf', Mpdf::class);
+            IOFactory::registerWriter('Pdf', $this->attributes['pdf_writer']['class']);
         }
 
         /**
@@ -176,11 +176,11 @@ class DocumentWrapper extends BaseWrapper
         $this->object = $object;
     }
 
-	/**
-	 * {@inheritdoc}
-	 *
-	 * @return array
-	 */
+    /**
+     * {@inheritdoc}
+     *
+     * @return array
+     */
     protected function configureMappings(): array
     {
         return [

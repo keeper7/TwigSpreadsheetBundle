@@ -83,6 +83,11 @@ class Configuration implements ConfigurationInterface
                             ->example('%kernel.project_dir%/var/spreadsheet/pdf"')
                             ->info('Temporary folder for mPDF.')
                         ->end()
+                        ->scalarNode('class')
+                            ->defaultValue('PhpOffice\PhpSpreadsheet\Writer\Pdf\Mpdf')
+                            ->example('PhpOffice\PhpSpreadsheet\Writer\Pdf\Mpdf')
+                            ->info('Pdf renderer class.')
+                        ->end()
                     ->end()
                 ->end()
             ->end();
