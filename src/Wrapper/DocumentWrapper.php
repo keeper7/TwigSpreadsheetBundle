@@ -129,6 +129,11 @@ class DocumentWrapper extends BaseWrapper
         $writer = IOFactory::createWriter($this->object, ucfirst($format));
         $writer->setPreCalculateFormulas($this->attributes['pre_calculate_formulas'] ?? true);
 
+        // Set tmp folder for mpdf
+        if ($format === 'pdf' && $this->attributes['pdf_writer']['tmp_folder'] !== false) {
+            $writer->setTempDir($this->attributes['pdf_writer']['tmp_folder']);
+        }
+
         // set up XML cache
         if ($this->attributes['cache']['xml'] !== false) {
             Filesystem::mkdir($this->attributes['cache']['xml']);

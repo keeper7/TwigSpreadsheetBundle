@@ -75,6 +75,16 @@ class Configuration implements ConfigurationInterface
                         ->end()
                     ->end()
                 ->end()
+                ->arrayNode('pdf_writer')
+                    ->addDefaultsIfNotSet()
+                    ->children()
+                        ->scalarNode('tmp_folder')
+                            ->defaultFalse()
+                            ->example('%kernel.project_dir%/var/spreadsheet/pdf"')
+                            ->info('Temporary folder for mPDF.')
+                        ->end()
+                    ->end()
+                ->end()
             ->end();
 
         return $treeBuilder;
