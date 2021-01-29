@@ -1,6 +1,6 @@
 <?php
 
-namespace Erelke\TwigSpreadsheetBundle\Helper;
+namespace K7\TwigSpreadsheetBundle\Helper;
 
 use function is_array;
 

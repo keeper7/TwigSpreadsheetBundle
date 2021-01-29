@@ -13,7 +13,7 @@
     </php>
 
     <testsuites>
-        <testsuite name="ErelkeTwigSpreadsheetBundle Test Suite">
+        <testsuite name="K7TwigSpreadsheetBundle Test Suite">
             <directory>./tests</directory>
         </testsuite>
     </testsuites>

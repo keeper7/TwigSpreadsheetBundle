@@ -1,6 +1,6 @@
 <?php
 
-namespace Erelke\TwigSpreadsheetBundle\Twig\TokenParser;
+namespace K7\TwigSpreadsheetBundle\Twig\TokenParser;
 
 use function count;
 use Exception;

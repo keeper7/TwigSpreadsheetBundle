@@ -1,18 +1,17 @@
 {
-    "name": "erelke/twig-spreadsheet-bundle",
+    "name": "k7/twig-spreadsheet-bundle",
     "type": "symfony-bundle",
     "description": "This Symfony bundle integrates PhpSpreadsheet into Symfony using Twig.",
     "keywords": ["excel","phpexcel","spreadsheet","phpspreadsheet","twig","symfony"],
-    "homepage": "https://github.com/erelke/TwigSpreadsheetBundle",
+    "homepage": "https://github.com/keeper7/TwigSpreadsheetBundle",
     "license": "MIT",
     "authors": [
         {
-            "name": "Elemér Erőss",
-            "email": "eross@korona.info.hu"
+            "name": "Keeper Seven",
         },
         {
             "name": "Community Contributors",
-            "homepage": "https://github.com/erelke/TwigSpreadsheetBundle/graphs/contributors"
+            "homepage": "https://github.com/keeper7/TwigSpreadsheetBundle/graphs/contributors"
         }
     ],
     "require": {
@@ -32,9 +31,9 @@
         "mpdf/mpdf": "Add support for PDF rendering, requires ~7.0"
     },
     "autoload": {
-        "psr-4": { "Erelke\\TwigSpreadsheetBundle\\": "src/" }
+        "psr-4": { "K7\\TwigSpreadsheetBundle\\": "src/" }
     },
     "autoload-dev": {
-        "psr-4": { "Erelke\\TwigSpreadsheetBundle\\Tests\\": "tests/" }
+        "psr-4": { "K7\\TwigSpreadsheetBundle\\Tests\\": "tests/" }
     }
 }

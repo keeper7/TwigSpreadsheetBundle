@@ -45,4 +45,4 @@ More examples
 
 For more advanced examples check the unit test scenarios here:
 
-https://github.com/Erelke/TwigSpreadsheetBundle/tree/master/tests/Twig/Fixtures/views
+https://github.com/K7/TwigSpreadsheetBundle/tree/master/tests/Twig/Fixtures/views

@@ -1,9 +1,9 @@
 <?php
 
-namespace Erelke\TwigSpreadsheetBundle\Twig\TokenParser;
+namespace K7\TwigSpreadsheetBundle\Twig\TokenParser;
 
-use Erelke\TwigSpreadsheetBundle\Twig\Node\HeaderFooterNode;
-use Erelke\TwigSpreadsheetBundle\Wrapper\HeaderFooterWrapper;
+use K7\TwigSpreadsheetBundle\Twig\Node\HeaderFooterNode;
+use K7\TwigSpreadsheetBundle\Wrapper\HeaderFooterWrapper;
 use InvalidArgumentException;
 use Twig\Node\Expression\ArrayExpression as Twig_Node_Expression_Array;
 use Twig\Node\Expression\ConstantExpression as Twig_Node_Expression_Constant;

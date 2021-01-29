@@ -1,6 +1,6 @@
 <?php
 
-namespace Erelke\TwigSpreadsheetBundle\Twig\Node;
+namespace K7\TwigSpreadsheetBundle\Twig\Node;
 
 use Twig\Compiler as Twig_Compiler;
 

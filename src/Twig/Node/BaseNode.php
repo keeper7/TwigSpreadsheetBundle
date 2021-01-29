@@ -1,8 +1,8 @@
 <?php
 
-namespace Erelke\TwigSpreadsheetBundle\Twig\Node;
+namespace K7\TwigSpreadsheetBundle\Twig\Node;
 
-use Erelke\TwigSpreadsheetBundle\Wrapper\PhpSpreadsheetWrapper;
+use K7\TwigSpreadsheetBundle\Wrapper\PhpSpreadsheetWrapper;
 use Twig\Node\Node as Twig_Node;
 
 /**

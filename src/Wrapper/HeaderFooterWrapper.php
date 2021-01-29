@@ -1,6 +1,6 @@
 <?php
 
-namespace Erelke\TwigSpreadsheetBundle\Wrapper;
+namespace K7\TwigSpreadsheetBundle\Wrapper;
 
 use function in_array;
 use InvalidArgumentException;

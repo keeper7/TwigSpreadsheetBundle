@@ -1,9 +1,9 @@
 <?php
 
-namespace Erelke\TwigSpreadsheetBundle\Twig\TokenParser;
+namespace K7\TwigSpreadsheetBundle\Twig\TokenParser;
 
-use Erelke\TwigSpreadsheetBundle\Twig\Node\AlignmentNode;
-use Erelke\TwigSpreadsheetBundle\Wrapper\HeaderFooterWrapper;
+use K7\TwigSpreadsheetBundle\Twig\Node\AlignmentNode;
+use K7\TwigSpreadsheetBundle\Wrapper\HeaderFooterWrapper;
 use InvalidArgumentException;
 use Twig\Node\Node as Twig_Node;
 

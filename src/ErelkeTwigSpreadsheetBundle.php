@@ -1,12 +1,12 @@
 <?php
 
-namespace Erelke\TwigSpreadsheetBundle;
+namespace K7\TwigSpreadsheetBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 /**
- * Class ErelkeTwigSpreadsheetBundle.
+ * Class K7TwigSpreadsheetBundle.
  */
-class ErelkeTwigSpreadsheetBundle extends Bundle
+class K7TwigSpreadsheetBundle extends Bundle
 {
 }

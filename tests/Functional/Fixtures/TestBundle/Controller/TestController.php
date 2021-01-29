@@ -1,6 +1,6 @@
 <?php
 
-namespace Erelke\TwigSpreadsheetBundle\Tests\Functional\Fixtures\TestBundle\Controller;
+namespace K7\TwigSpreadsheetBundle\Tests\Functional\Fixtures\TestBundle\Controller;
 
 use InvalidArgumentException;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController as Controller;

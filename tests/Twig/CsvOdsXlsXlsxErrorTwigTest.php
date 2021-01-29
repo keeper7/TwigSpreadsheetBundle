@@ -1,6 +1,6 @@
 <?php
 
-namespace Erelke\TwigSpreadsheetBundle\Tests\Twig;
+namespace K7\TwigSpreadsheetBundle\Tests\Twig;
 
 use Exception;
 use Twig\Error\SyntaxError as Twig_Error_Syntax;
@@ -33,7 +33,7 @@ class CsvOdsXlsXlsxErrorTwigTest extends BaseTwigTest
     public function testDocumentError($format)
     {
         $this->expectException(Twig_Error_Syntax::class);
-        $this->expectExceptionMessage('Node "Erelke\TwigSpreadsheetBundle\Twig\Node\DocumentNode" is not allowed inside of Node "Erelke\TwigSpreadsheetBundle\Twig\Node\SheetNode"');
+        $this->expectExceptionMessage('Node "K7\TwigSpreadsheetBundle\Twig\Node\DocumentNode" is not allowed inside of Node "K7\TwigSpreadsheetBundle\Twig\Node\SheetNode"');
 
         $this->getDocument('documentError', $format);
     }
@@ -48,7 +48,7 @@ class CsvOdsXlsXlsxErrorTwigTest extends BaseTwigTest
     public function testDocumentErrorTextAfter($format)
     {
         $this->expectException(Twig_Error_Syntax::class);
-        $this->expectExceptionMessage('Node "Twig\Node\TextNode" is not allowed after Node "Erelke\TwigSpreadsheetBundle\Twig\Node\DocumentNode"');
+        $this->expectExceptionMessage('Node "Twig\Node\TextNode" is not allowed after Node "K7\TwigSpreadsheetBundle\Twig\Node\DocumentNode"');
 
         $this->getDocument('documentErrorTextAfter', $format);
     }
@@ -63,7 +63,7 @@ class CsvOdsXlsXlsxErrorTwigTest extends BaseTwigTest
     public function testDocumentErrorTextBefore($format)
     {
         $this->expectException(Twig_Error_Syntax::class);
-        $this->expectExceptionMessage('Node "Twig\Node\TextNode" is not allowed before Node "Erelke\TwigSpreadsheetBundle\Twig\Node\DocumentNode"');
+        $this->expectExceptionMessage('Node "Twig\Node\TextNode" is not allowed before Node "K7\TwigSpreadsheetBundle\Twig\Node\DocumentNode"');
 
         $this->getDocument('documentErrorTextBefore', $format);
     }
@@ -78,7 +78,7 @@ class CsvOdsXlsXlsxErrorTwigTest extends BaseTwigTest
     public function testStartCellIndexError($format)
     {
         $this->expectException(TypeError::class);
-        $this->expectExceptionMessage('Argument 1 passed to Erelke\TwigSpreadsheetBundle\Wrapper\PhpSpreadsheetWrapper::startCell() must be of the type integer');
+        $this->expectExceptionMessage('Argument 1 passed to K7\TwigSpreadsheetBundle\Wrapper\PhpSpreadsheetWrapper::startCell() must be of the type integer');
 
         $this->getDocument('cellIndexError', $format);
     }
@@ -93,7 +93,7 @@ class CsvOdsXlsXlsxErrorTwigTest extends BaseTwigTest
     public function testStartRowIndexError($format)
     {
         $this->expectException(TypeError::class);
-        $this->expectExceptionMessage('Argument 1 passed to Erelke\TwigSpreadsheetBundle\Wrapper\PhpSpreadsheetWrapper::startRow() must be of the type integer');
+        $this->expectExceptionMessage('Argument 1 passed to K7\TwigSpreadsheetBundle\Wrapper\PhpSpreadsheetWrapper::startRow() must be of the type integer');
 
         $this->getDocument('rowIndexError', $format);
     }
@@ -108,7 +108,7 @@ class CsvOdsXlsXlsxErrorTwigTest extends BaseTwigTest
     public function testSheetError($format)
     {
         $this->expectException(Twig_Error_Syntax::class);
-        $this->expectExceptionMessage('Node "Erelke\TwigSpreadsheetBundle\Twig\Node\RowNode" is not allowed inside of Node "Erelke\TwigSpreadsheetBundle\Twig\Node\DocumentNode"');
+        $this->expectExceptionMessage('Node "K7\TwigSpreadsheetBundle\Twig\Node\RowNode" is not allowed inside of Node "K7\TwigSpreadsheetBundle\Twig\Node\DocumentNode"');
 
         $this->getDocument('sheetError', $format);
     }

@@ -9,7 +9,7 @@ following command to download the latest stable version of this bundle:
 
 .. code-block:: terminal
 
-    $ composer require erelke/twig-spreadsheet-bundle
+    $ composer require k7/twig-spreadsheet-bundle
 
 This command requires you to have Composer installed globally, as explained
 in the `installation chapter`_ of the Composer documentation.
@@ -30,7 +30,7 @@ Step 2: Enable the Bundle
             $bundles = array(
                 // ...
 
-                new Erelke\TwigSpreadsheetBundle\ErelkeTwigSpreadsheetBundle(),
+                new K7\TwigSpreadsheetBundle\K7TwigSpreadsheetBundle(),
             );
 
             // ...

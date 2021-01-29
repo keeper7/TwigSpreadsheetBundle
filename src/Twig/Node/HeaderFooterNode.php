@@ -1,8 +1,8 @@
 <?php
 
-namespace Erelke\TwigSpreadsheetBundle\Twig\Node;
+namespace K7\TwigSpreadsheetBundle\Twig\Node;
 
-use Erelke\TwigSpreadsheetBundle\Wrapper\HeaderFooterWrapper;
+use K7\TwigSpreadsheetBundle\Wrapper\HeaderFooterWrapper;
 use InvalidArgumentException;
 use Twig\Compiler as Twig_Compiler;
 

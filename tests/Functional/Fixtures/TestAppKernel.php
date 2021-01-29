@@ -1,9 +1,9 @@
 <?php
 
-namespace Erelke\TwigSpreadsheetBundle\Tests\Functional\Fixtures;
+namespace K7\TwigSpreadsheetBundle\Tests\Functional\Fixtures;
 
-use Erelke\TwigSpreadsheetBundle\ErelkeTwigSpreadsheetBundle;
-use Erelke\TwigSpreadsheetBundle\Tests\Functional\Fixtures\TestBundle\TestBundle;
+use K7\TwigSpreadsheetBundle\K7TwigSpreadsheetBundle;
+use K7\TwigSpreadsheetBundle\Tests\Functional\Fixtures\TestBundle\TestBundle;
 use Exception;
 use Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle;
 use Symfony\Bundle\FrameworkBundle\FrameworkBundle;
@@ -35,7 +35,7 @@ class TestAppKernel extends Kernel
             new FrameworkBundle(),
 	        new TwigBundle(),
 	        new SensioFrameworkExtraBundle(),
-	        new ErelkeTwigSpreadsheetBundle(),
+	        new K7TwigSpreadsheetBundle(),
 	        new TestBundle(),
         ];
     }

@@ -1,11 +1,11 @@
 services:
-    erelke_twig_spreadsheet.add_request_formats_listener:
-        class: Erelke\TwigSpreadsheetBundle\EventListener\AddRequestFormatsListener
+    k7_twig_spreadsheet.add_request_formats_listener:
+        class: K7\TwigSpreadsheetBundle\EventListener\AddRequestFormatsListener
         tags:
             - { name: kernel.event_subscriber }
 
-    erelke_twig_spreadsheet.twig_spreadsheet_extension:
-        class: Erelke\TwigSpreadsheetBundle\Twig\TwigSpreadsheetExtension
+    k7_twig_spreadsheet.twig_spreadsheet_extension:
+        class: K7\TwigSpreadsheetBundle\Twig\TwigSpreadsheetExtension
         public: true
         arguments: [ null ] # config placeholder
         tags:

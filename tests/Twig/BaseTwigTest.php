@@ -1,9 +1,9 @@
 <?php
 
-namespace Erelke\TwigSpreadsheetBundle\Tests\Twig;
+namespace K7\TwigSpreadsheetBundle\Tests\Twig;
 
-use Erelke\TwigSpreadsheetBundle\Helper\Filesystem;
-use Erelke\TwigSpreadsheetBundle\Twig\TwigSpreadsheetExtension;
+use K7\TwigSpreadsheetBundle\Helper\Filesystem;
+use K7\TwigSpreadsheetBundle\Twig\TwigSpreadsheetExtension;
 use PhpOffice\PhpSpreadsheet\IOFactory;
 use PhpOffice\PhpSpreadsheet\Reader\Exception;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;

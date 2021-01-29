@@ -1,8 +1,8 @@
 <?php
 
-namespace Erelke\TwigSpreadsheetBundle\Twig\TokenParser;
+namespace K7\TwigSpreadsheetBundle\Twig\TokenParser;
 
-use Erelke\TwigSpreadsheetBundle\Twig\Node\RowNode;
+use K7\TwigSpreadsheetBundle\Twig\Node\RowNode;
 use Twig\Node\Expression\ConstantExpression as Twig_Node_Expression_Constant;
 use Twig\Token as Twig_Token;
 use Twig\Node\Node as Twig_Node;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Erelke\TwigSpreadsheetBundle\Tests\Functional\Fixtures\TestBundle;
+namespace K7\TwigSpreadsheetBundle\Tests\Functional\Fixtures\TestBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 

@@ -1,9 +1,9 @@
 <?php
 
-namespace Erelke\TwigSpreadsheetBundle\Tests\Functional;
+namespace K7\TwigSpreadsheetBundle\Tests\Functional;
 
-use Erelke\TwigSpreadsheetBundle\Helper\Filesystem;
-use Erelke\TwigSpreadsheetBundle\Tests\Functional\Fixtures\TestAppKernel;
+use K7\TwigSpreadsheetBundle\Helper\Filesystem;
+use K7\TwigSpreadsheetBundle\Tests\Functional\Fixtures\TestAppKernel;
 use PhpOffice\PhpSpreadsheet\IOFactory;
 use PhpOffice\PhpSpreadsheet\Reader\Exception;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;

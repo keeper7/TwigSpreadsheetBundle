@@ -1,6 +1,6 @@
 <?php
 
-namespace Erelke\TwigSpreadsheetBundle\Wrapper;
+namespace K7\TwigSpreadsheetBundle\Wrapper;
 
 use LogicException;
 use Twig\Environment as Twig_Environment;

@@ -1,8 +1,8 @@
 <?php
 
-namespace Erelke\TwigSpreadsheetBundle\Wrapper;
+namespace K7\TwigSpreadsheetBundle\Wrapper;
 
-use Erelke\TwigSpreadsheetBundle\Helper\Filesystem;
+use K7\TwigSpreadsheetBundle\Helper\Filesystem;
 use InvalidArgumentException;
 use function is_string;
 use LogicException;

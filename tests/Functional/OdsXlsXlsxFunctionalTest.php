@@ -1,6 +1,6 @@
 <?php
 
-namespace Erelke\TwigSpreadsheetBundle\Tests\Functional;
+namespace K7\TwigSpreadsheetBundle\Tests\Functional;
 
 use Exception;
 

@@ -1,9 +1,9 @@
 <?php
 
-namespace Erelke\TwigSpreadsheetBundle\Twig\NodeVisitor;
+namespace K7\TwigSpreadsheetBundle\Twig\NodeVisitor;
 
-use Erelke\TwigSpreadsheetBundle\Twig\Node\BaseNode;
-use Erelke\TwigSpreadsheetBundle\Twig\Node\DocumentNode;
+use K7\TwigSpreadsheetBundle\Twig\Node\BaseNode;
+use K7\TwigSpreadsheetBundle\Twig\Node\DocumentNode;
 use function get_class;
 use Twig\NodeVisitor\AbstractNodeVisitor as Twig_BaseNodeVisitor;
 use Twig\Environment as Twig_Environment;
@@ -102,7 +102,7 @@ class SyntaxCheckNodeVisitor extends Twig_BaseNodeVisitor
 
         // find first parent from this bundle
         foreach (array_reverse($this->path) as $className) {
-            if (strpos($className, 'Erelke\\TwigSpreadsheetBundle\\Twig\\Node\\') === 0) {
+            if (strpos($className, 'K7\\TwigSpreadsheetBundle\\Twig\\Node\\') === 0) {
                 $parentName = $className;
                 break;
             }

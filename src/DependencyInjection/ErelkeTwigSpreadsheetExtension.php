@@ -1,6 +1,6 @@
 <?php
 
-namespace Erelke\TwigSpreadsheetBundle\DependencyInjection;
+namespace K7\TwigSpreadsheetBundle\DependencyInjection;
 
 use Exception;
 use Symfony\Component\Config\FileLocator;
@@ -9,9 +9,9 @@ use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 use Symfony\Component\HttpKernel\DependencyInjection\ConfigurableExtension;
 
 /**
- * Class ErelkeTwigSpreadsheetExtension.
+ * Class K7TwigSpreadsheetExtension.
  */
-class ErelkeTwigSpreadsheetExtension extends ConfigurableExtension
+class K7TwigSpreadsheetExtension extends ConfigurableExtension
 {
     /**
      * {@inheritdoc}
@@ -23,7 +23,7 @@ class ErelkeTwigSpreadsheetExtension extends ConfigurableExtension
         $loader = new YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.yml');
 
-        $definition = $container->getDefinition('erelke_twig_spreadsheet.twig_spreadsheet_extension');
+        $definition = $container->getDefinition('k7_twig_spreadsheet.twig_spreadsheet_extension');
         $definition->replaceArgument(0, $mergedConfig);
     }
 }

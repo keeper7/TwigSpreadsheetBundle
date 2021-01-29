@@ -1,6 +1,6 @@
 <?php
 
-namespace Erelke\TwigSpreadsheetBundle\Tests\Twig;
+namespace K7\TwigSpreadsheetBundle\Tests\Twig;
 
 use Exception;
 use PhpOffice\PhpSpreadsheet\Shared\PasswordHasher;

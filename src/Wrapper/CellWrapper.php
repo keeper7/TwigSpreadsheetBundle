@@ -1,6 +1,6 @@
 <?php
 
-namespace Erelke\TwigSpreadsheetBundle\Wrapper;
+namespace K7\TwigSpreadsheetBundle\Wrapper;
 
 use InvalidArgumentException;
 use function is_int;
