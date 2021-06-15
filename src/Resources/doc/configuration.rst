@@ -9,6 +9,7 @@ Configuration
         # Disabling formula calculations can improve the performance but the resulting documents
         # won't immediately show formula results in external programs.
         pre_calculate_formulas: true
+        embed_images: false
 
         cache:
 
