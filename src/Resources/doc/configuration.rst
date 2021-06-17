@@ -10,6 +10,7 @@ Configuration
         # won't immediately show formula results in external programs.
         pre_calculate_formulas: true
         embed_images: false
+        include_charts: false
 
         cache:
 

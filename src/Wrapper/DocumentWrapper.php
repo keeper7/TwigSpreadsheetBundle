@@ -62,6 +62,7 @@ class DocumentWrapper extends BaseWrapper
         if (isset($properties['template'])) {
             $templatePath = $this->expandPath($properties['template']);
             $reader = IOFactory::createReaderForFile($templatePath);
+            $reader->setIncludeCharts($this->attributes['include_charts'] ?? false);
             $this->object = $reader->load($templatePath);
         }
 
@@ -144,6 +145,7 @@ class DocumentWrapper extends BaseWrapper
             $writer->setUseDiskCaching(true, $this->attributes['cache']['xml']);
         }
 
+        $writer->setIncludeCharts($this->attributes['include_charts'] ?? false);
         // set special CSV writer attributes
         if ($writer instanceof Csv) {
             /**
