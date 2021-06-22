@@ -4,6 +4,7 @@ namespace K7\TwigSpreadsheetBundle\Wrapper;
 
 use K7\TwigSpreadsheetBundle\Helper\Filesystem;
 use InvalidArgumentException;
+use PhpOffice\PhpSpreadsheet\Shared\StringHelper;
 use function is_string;
 use LogicException;
 use PhpOffice\PhpSpreadsheet\Exception;
@@ -129,6 +130,9 @@ class DocumentWrapper extends BaseWrapper
          */
         $writer = IOFactory::createWriter($this->object, ucfirst($format));
         $writer->setPreCalculateFormulas($this->attributes['pre_calculate_formulas'] ?? true);
+
+        StringHelper::setDecimalSeparator($this->attributes['string_helper']['decimal_separator'] ?? StringHelper::getDecimalSeparator());
+        StringHelper::setThousandsSeparator($this->attributes['string_helper']['thousands_separator'] ??  StringHelper::getThousandsSeparator());
 
         if ($format === 'pdf' || $format === 'html') {
             $writer->setEmbedImages($this->attributes['embed_images'] ?? false);
