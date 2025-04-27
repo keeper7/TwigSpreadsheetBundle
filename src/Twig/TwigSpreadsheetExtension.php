@@ -14,21 +14,16 @@ use K7\TwigSpreadsheetBundle\Twig\TokenParser\RowTokenParser;
 use K7\TwigSpreadsheetBundle\Twig\TokenParser\SheetTokenParser;
 use K7\TwigSpreadsheetBundle\Wrapper\HeaderFooterWrapper;
 use K7\TwigSpreadsheetBundle\Wrapper\PhpSpreadsheetWrapper;
-use InvalidArgumentException;
-use function is_array;
-use Twig\Error\RuntimeError as Twig_Error_Runtime;
-use Twig\Extension\AbstractExtension as Twig_Extension;
-use Twig\TwigFunction as Twig_SimpleFunction;
+use Twig\Error\RuntimeError;
+use Twig\Extension\AbstractExtension;
+use Twig\TwigFunction;
 
 /**
  * Class TwigSpreadsheetExtension.
  */
-class TwigSpreadsheetExtension extends Twig_Extension
+class TwigSpreadsheetExtension extends AbstractExtension
 {
-    /**
-     * @var array
-     */
-    private $attributes;
+    private array $attributes;
 
     /**
      * TwigSpreadsheetExtension constructor.
@@ -51,21 +46,21 @@ class TwigSpreadsheetExtension extends Twig_Extension
     /**
      * {@inheritdoc}
      */
-    public function getFunctions()
+    public function getFunctions(): array
     {
         return [
-            new Twig_SimpleFunction('xlsmergestyles', [$this, 'mergeStyles']),
-            new Twig_SimpleFunction('xlscellindex', [$this, 'getCurrentColumn'], ['needs_context' => true]),
-            new Twig_SimpleFunction('xlsrowindex', [$this, 'getCurrentRow'], ['needs_context' => true]),
+            new TwigFunction('xlsmergestyles', [$this, 'mergeStyles']),
+            new TwigFunction('xlscellindex', [$this, 'getCurrentColumn'], ['needs_context' => true]),
+            new TwigFunction('xlsrowindex', [$this, 'getCurrentRow'], ['needs_context' => true]),
         ];
     }
 
     /**
      * {@inheritdoc}
      *
-     * @throws InvalidArgumentException
+     * @throws \InvalidArgumentException
      */
-    public function getTokenParsers()
+    public function getTokenParsers(): array
     {
         return [
             new AlignmentTokenParser([], HeaderFooterWrapper::ALIGNMENT_CENTER),
@@ -84,7 +79,7 @@ class TwigSpreadsheetExtension extends Twig_Extension
     /**
      * {@inheritdoc}
      */
-    public function getNodeVisitors()
+    public function getNodeVisitors(): array
     {
         return [
             new MacroContextNodeVisitor(),
@@ -96,43 +91,42 @@ class TwigSpreadsheetExtension extends Twig_Extension
      * @param array $style1
      * @param array $style2
      *
-     * @throws Twig_Error_Runtime
-     *
      * @return array
      */
     public function mergeStyles(array $style1, array $style2): array
     {
-        if (!is_array($style1) || !is_array($style2)) {
-            throw new Twig_Error_Runtime('The xlsmergestyles function only works with arrays.');
-        }
         return Arrays::mergeRecursive($style1, $style2);
     }
 
     /**
      * @param array $context
      *
-     * @throws Twig_Error_Runtime
+     * @throws RuntimeError
      *
      * @return int|null
      */
-    public function getCurrentColumn(array $context) {
+    public function getCurrentColumn(array $context): ?int
+    {
         if (!isset($context[PhpSpreadsheetWrapper::INSTANCE_KEY])) {
-            throw new Twig_Error_Runtime('The PhpSpreadsheetWrapper instance is missing.');
+            throw new RuntimeError('The PhpSpreadsheetWrapper instance is missing.');
         }
+
         return $context[PhpSpreadsheetWrapper::INSTANCE_KEY]->getCurrentColumn();
     }
 
     /**
      * @param array $context
      *
-     * @throws Twig_Error_Runtime
+     * @throws RuntimeError
      *
      * @return int|null
      */
-    public function getCurrentRow(array $context) {
+    public function getCurrentRow(array $context): ?int
+    {
         if (!isset($context[PhpSpreadsheetWrapper::INSTANCE_KEY])) {
-            throw new Twig_Error_Runtime('The PhpSpreadsheetWrapper instance is missing.');
+            throw new RuntimeError('The PhpSpreadsheetWrapper instance is missing.');
         }
+
         return $context[PhpSpreadsheetWrapper::INSTANCE_KEY]->getCurrentRow();
     }
 }

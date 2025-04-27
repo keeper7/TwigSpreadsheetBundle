@@ -2,58 +2,46 @@
 
 namespace K7\TwigSpreadsheetBundle\Wrapper;
 
-use InvalidArgumentException;
-use function is_int;
-use LogicException;
 use PhpOffice\PhpSpreadsheet\Cell\Cell;
 use PhpOffice\PhpSpreadsheet\Cell\Coordinate;
 use PhpOffice\PhpSpreadsheet\Exception;
-use RuntimeException;
-use Twig\Environment as Twig_Environment;
+use Twig\Environment;
 
 /**
  * Class CellWrapper.
  */
 class CellWrapper extends BaseWrapper
 {
-    /**
-     * @var SheetWrapper
-     */
-    protected $sheetWrapper;
-
-    /**
-     * @var Cell|null
-     */
-    protected $object;
+    protected SheetWrapper $sheetWrapper;
+    protected ?Cell $object;
 
     /**
      * CellWrapper constructor.
      *
-     * @param array             $context
-     * @param Twig_Environment $environment
-     * @param SheetWrapper      $sheetWrapper
+     * @param array        $context
+     * @param Environment  $environment
+     * @param SheetWrapper $sheetWrapper
      */
-    public function __construct(array $context, Twig_Environment $environment, SheetWrapper $sheetWrapper)
+    public function __construct(array $context, Environment $environment, SheetWrapper $sheetWrapper)
     {
         parent::__construct($context, $environment);
 
         $this->sheetWrapper = $sheetWrapper;
-
         $this->object = null;
     }
 
     /**
      * @param int|null $index
-     * @param array $properties
+     * @param array    $properties
      *
-     * @throws InvalidArgumentException
-     * @throws LogicException
-     * @throws RuntimeException
+     * @throws \InvalidArgumentException
+     * @throws \LogicException
+     * @throws \RuntimeException
      */
-    public function start(int $index = null, array $properties = [])
+    public function start(?int $index = null, array $properties = []): void
     {
         if ($this->sheetWrapper->getObject() === null) {
-            throw new LogicException();
+            throw new \LogicException();
         }
 
         if ($index === null) {
@@ -64,7 +52,8 @@ class CellWrapper extends BaseWrapper
 
         $this->object = $this->sheetWrapper->getObject()->getCellByColumnAndRow(
             $this->sheetWrapper->getColumn(),
-            $this->sheetWrapper->getRow());
+            $this->sheetWrapper->getRow()
+        );
 
         $this->parameters['value'] = null;
         $this->parameters['properties'] = $properties;
@@ -76,7 +65,7 @@ class CellWrapper extends BaseWrapper
      *
      * @throws Exception
      */
-    public function value($value = null)
+    public function value($value = null): void
     {
         if ($value !== null) {
             if (isset($this->parameters['properties']['dataType'])) {
@@ -89,7 +78,7 @@ class CellWrapper extends BaseWrapper
         $this->parameters['value'] = $value;
     }
 
-    public function end()
+    public function end(): void
     {
         $this->object = null;
         $this->parameters = [];
@@ -98,7 +87,7 @@ class CellWrapper extends BaseWrapper
     /**
      * @return Cell|null
      */
-    public function getObject()
+    public function getObject(): ?Cell
     {
         return $this->object;
     }
@@ -106,44 +95,78 @@ class CellWrapper extends BaseWrapper
     /**
      * @param Cell|null $object
      */
-    public function setObject(Cell $object = null)
+    public function setObject(?Cell $object = null): void
     {
         $this->object = $object;
     }
 
-	/**
-	 * {@inheritdoc}
-	 *
-	 * @return array
-	 */
+    /**
+     * {@inheritdoc}
+     *
+     * @throws Exception
+     */
     protected function configureMappings(): array
     {
         return [
-            'break' => function ($value) { $this->sheetWrapper->getObject()->setBreak($this->object->getCoordinate(), $value); },
-            'dataType' => function ($value) { $this->object->setDataType($value); },
+            'break' => function ($value) {
+                $this->sheetWrapper->getObject()->setBreak($this->object->getCoordinate(), $value);
+            },
+            'dataType' => function ($value) {
+                $this->object->setDataType($value);
+            },
             'dataValidation' => [
-                'allowBlank' => function ($value) { $this->object->getDataValidation()->setAllowBlank($value); },
-                'error' => function ($value) { $this->object->getDataValidation()->setError($value); },
-                'errorStyle' => function ($value) { $this->object->getDataValidation()->setErrorStyle($value); },
-                'errorTitle' => function ($value) { $this->object->getDataValidation()->setErrorTitle($value); },
-                'formula1' => function ($value) { $this->object->getDataValidation()->setFormula1($value); },
-                'formula2' => function ($value) { $this->object->getDataValidation()->setFormula2($value); },
-                'operator' => function ($value) { $this->object->getDataValidation()->setOperator($value); },
-                'prompt' => function ($value) { $this->object->getDataValidation()->setPrompt($value); },
-                'promptTitle' => function ($value) { $this->object->getDataValidation()->setPromptTitle($value); },
-                'showDropDown' => function ($value) { $this->object->getDataValidation()->setShowDropDown($value); },
-                'showErrorMessage' => function ($value) { $this->object->getDataValidation()->setShowErrorMessage($value); },
-                'showInputMessage' => function ($value) { $this->object->getDataValidation()->setShowInputMessage($value); },
-                'type' => function ($value) { $this->object->getDataValidation()->setType($value); },
+                'allowBlank' => function ($value) {
+                    $this->object->getDataValidation()->setAllowBlank($value);
+                },
+                'error' => function ($value) {
+                    $this->object->getDataValidation()->setError($value);
+                },
+                'errorStyle' => function ($value) {
+                    $this->object->getDataValidation()->setErrorStyle($value);
+                },
+                'errorTitle' => function ($value) {
+                    $this->object->getDataValidation()->setErrorTitle($value);
+                },
+                'formula1' => function ($value) {
+                    $this->object->getDataValidation()->setFormula1($value);
+                },
+                'formula2' => function ($value) {
+                    $this->object->getDataValidation()->setFormula2($value);
+                },
+                'operator' => function ($value) {
+                    $this->object->getDataValidation()->setOperator($value);
+                },
+                'prompt' => function ($value) {
+                    $this->object->getDataValidation()->setPrompt($value);
+                },
+                'promptTitle' => function ($value) {
+                    $this->object->getDataValidation()->setPromptTitle($value);
+                },
+                'showDropDown' => function ($value) {
+                    $this->object->getDataValidation()->setShowDropDown($value);
+                },
+                'showErrorMessage' => function ($value) {
+                    $this->object->getDataValidation()->setShowErrorMessage($value);
+                },
+                'showInputMessage' => function ($value) {
+                    $this->object->getDataValidation()->setShowInputMessage($value);
+                },
+                'type' => function ($value) {
+                    $this->object->getDataValidation()->setType($value);
+                },
             ],
             'merge' => function ($value) {
-                if (is_int($value)) {
+                if (\is_int($value)) {
                     $value = Coordinate::stringFromColumnIndex($value).$this->sheetWrapper->getRow();
                 }
                 $this->sheetWrapper->getObject()->mergeCells(sprintf('%s:%s', $this->object->getCoordinate(), $value));
             },
-            'style' => function ($value) { $this->sheetWrapper->getObject()->getStyle($this->object->getCoordinate())->applyFromArray($value); },
-            'url' => function ($value) { $this->object->getHyperlink()->setUrl($value); },
+            'style' => function ($value) {
+                $this->sheetWrapper->getObject()->getStyle($this->object->getCoordinate())->applyFromArray($value);
+            },
+            'url' => function ($value) {
+                $this->object->getHyperlink()->setUrl($value);
+            },
         ];
     }
 }

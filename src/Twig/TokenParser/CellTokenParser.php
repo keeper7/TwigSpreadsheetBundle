@@ -3,10 +3,10 @@
 namespace K7\TwigSpreadsheetBundle\Twig\TokenParser;
 
 use K7\TwigSpreadsheetBundle\Twig\Node\CellNode;
-use Twig\Node\Node as Twig_Node;
-use Twig\Node\Expression\ArrayExpression as Twig_Node_Expression_Array;
-use Twig\Node\Expression\ConstantExpression as Twig_Node_Expression_Constant;
-use Twig\Token as Twig_Token;
+use Twig\Node\Expression\ArrayExpression;
+use Twig\Node\Expression\ConstantExpression;
+use Twig\Node\Node;
+use Twig\Token;
 
 /**
  * Class CellTokenParser.
@@ -16,16 +16,16 @@ class CellTokenParser extends BaseTokenParser
     /**
      * {@inheritdoc}
      */
-    public function configureParameters(Twig_Token $token): array
+    public function configureParameters(Token $token): array
     {
         return [
             'index' => [
                 'type' => self::PARAMETER_TYPE_VALUE,
-                'default' => new Twig_Node_Expression_Constant(null, $token->getLine()),
+                'default' => new ConstantExpression(null, $token->getLine()),
             ],
             'properties' => [
                 'type' => self::PARAMETER_TYPE_ARRAY,
-                'default' => new Twig_Node_Expression_Array([], $token->getLine()),
+                'default' => new ArrayExpression([], $token->getLine()),
             ],
         ];
     }
@@ -33,15 +33,15 @@ class CellTokenParser extends BaseTokenParser
     /**
      * {@inheritdoc}
      */
-    public function createNode(array $nodes = [], int $lineNo = 0): Twig_Node
+    public function createNode(array $nodes = [], int $lineNo = 0): Node
     {
-        return new CellNode($nodes, $this->getAttributes(), $lineNo, $this->getTag());
+        return new CellNode($nodes, $this->getAttributes(), $lineNo);
     }
 
     /**
      * {@inheritdoc}
      */
-    public function getTag()
+    public function getTag(): string
     {
         return 'xlscell';
     }

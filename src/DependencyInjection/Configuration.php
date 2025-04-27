@@ -2,10 +2,8 @@
 
 namespace K7\TwigSpreadsheetBundle\DependencyInjection;
 
-use RuntimeException;
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
-use Symfony\Component\HttpKernel\Kernel;
 
 /**
  * Class Configuration.
@@ -15,17 +13,12 @@ class Configuration implements ConfigurationInterface
     /**
      * {@inheritdoc}
      *
-     * @throws RuntimeException
+     * @throws \RuntimeException
      */
-    public function getConfigTreeBuilder()
+    public function getConfigTreeBuilder(): TreeBuilder
     {
-    	if (version_compare(Kernel::VERSION, '4.3.0', '>=')) {
-		    $treeBuilder = new TreeBuilder('k7_twig_spreadsheet');
-		    $rootNode = $treeBuilder->getRootNode();
-	    } else {
-		    $treeBuilder = new TreeBuilder();
-		    $rootNode = $treeBuilder->root('k7_twig_spreadsheet');
-	    }
+        $treeBuilder = new TreeBuilder('k7_twig_spreadsheet');
+        $rootNode = $treeBuilder->getRootNode();
 
         $rootNode
             ->children()

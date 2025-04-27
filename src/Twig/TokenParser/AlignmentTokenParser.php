@@ -4,18 +4,14 @@ namespace K7\TwigSpreadsheetBundle\Twig\TokenParser;
 
 use K7\TwigSpreadsheetBundle\Twig\Node\AlignmentNode;
 use K7\TwigSpreadsheetBundle\Wrapper\HeaderFooterWrapper;
-use InvalidArgumentException;
-use Twig\Node\Node as Twig_Node;
+use Twig\Node\Node;
 
 /**
  * Class AlignmentTokenParser.
  */
 class AlignmentTokenParser extends BaseTokenParser
 {
-    /**
-     * @var string
-     */
-    private $alignment;
+    private string $alignment;
 
     /**
      * AlignmentTokenParser constructor.
@@ -23,7 +19,7 @@ class AlignmentTokenParser extends BaseTokenParser
      * @param array  $attributes optional attributes for the corresponding node
      * @param string $alignment
      *
-     * @throws InvalidArgumentException
+     * @throws \InvalidArgumentException
      */
     public function __construct(array $attributes = [], string $alignment = HeaderFooterWrapper::ALIGNMENT_CENTER)
     {
@@ -35,17 +31,17 @@ class AlignmentTokenParser extends BaseTokenParser
     /**
      * {@inheritdoc}
      *
-     * @throws InvalidArgumentException
+     * @throws \InvalidArgumentException
      */
-    public function createNode(array $nodes = [], int $lineNo = 0): Twig_Node
+    public function createNode(array $nodes = [], int $lineNo = 0): Node
     {
-        return new AlignmentNode($nodes, $this->getAttributes(), $lineNo, $this->getTag(), $this->alignment);
+        return new AlignmentNode($nodes, $this->getAttributes(), $lineNo, $this->alignment);
     }
 
     /**
      * {@inheritdoc}
      */
-    public function getTag()
+    public function getTag(): string
     {
         return 'xls'.$this->alignment;
     }

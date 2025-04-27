@@ -2,27 +2,29 @@
 
 namespace K7\TwigSpreadsheetBundle\Twig\Node;
 
-use Twig\Compiler as Twig_Compiler;
+use Twig\Attribute\YieldReady;
+use Twig\Compiler;
 
 /**
  * Class SheetNode.
  */
+#[YieldReady]
 class SheetNode extends BaseNode
 {
     /**
-     * @param Twig_Compiler $compiler
+     * @param Compiler $compiler
      */
-    public function compile(Twig_Compiler $compiler)
+    public function compile(Compiler $compiler): void
     {
         $compiler->addDebugInfo($this)
             ->write(self::CODE_FIX_CONTEXT)
             ->write(self::CODE_INSTANCE.'->startSheet(')
                 ->subcompile($this->getNode('index'))->raw(', ')
                 ->subcompile($this->getNode('properties'))
-            ->raw(');'.PHP_EOL)
+            ->raw(');'.\PHP_EOL)
             ->subcompile($this->getNode('body'))
             ->addDebugInfo($this)
-            ->write(self::CODE_INSTANCE.'->endSheet();'.PHP_EOL);
+            ->write(self::CODE_INSTANCE.'->endSheet();'.\PHP_EOL);
     }
 
     /**
